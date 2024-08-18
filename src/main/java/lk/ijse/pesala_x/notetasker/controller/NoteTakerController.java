@@ -47,5 +47,4 @@ public class NoteTakerController {
     public void deleteNote(@PathVariable ("noteId") String noteId) {
         System.out.println(noteId + " Deleted");
     }
-
 }
