@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Spring Web and create package structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/dto/Note.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/util/AppUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Note.md" afterDir="false" />
+    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="create Note Endpoint tested">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteTakerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteTakerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/dto/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/dto/NoteDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +176,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723963476498</updated>
-      <workItem from="1723963477597" duration="7893000" />
+      <workItem from="1723963477597" duration="9810000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Web and create package structure">
       <option name="closed" value="true" />
@@ -187,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723966492103</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create Note Endpoint tested">
+      <option name="closed" value="true" />
+      <created>1723975603944</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723975603944</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +203,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Spring Web and create package structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring Web and create package structure" />
+    <MESSAGE value="create Note Endpoint tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="create Note Endpoint tested" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
