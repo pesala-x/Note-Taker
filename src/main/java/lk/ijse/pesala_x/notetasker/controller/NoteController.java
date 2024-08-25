@@ -2,7 +2,6 @@ package lk.ijse.pesala_x.notetasker.controller;
 
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.service.NoteService;
-import lk.ijse.pesala_x.notetasker.util.AppUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
