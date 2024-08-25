@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class NoteDTO implements Serializable {
     private String noteId;
     private String noteTitle;
-    private String noteDescription;
+    private String noteDesc;
     private String priorityLevel;
-    private String createdDateTime;
+    private String createDate;
 }
