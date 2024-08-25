@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="minor changes apply with add @ResponseStatus to controller">
+    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Main configs added to handle ORM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/config/WebAppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/config/WebAppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/config/WebAppRootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/config/WebAppRootConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +181,7 @@
       <workItem from="1723963477597" duration="11456000" />
       <workItem from="1724557623105" duration="11087000" />
       <workItem from="1724578628001" duration="943000" />
-      <workItem from="1724579640863" duration="418000" />
+      <workItem from="1724579640863" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Web and create package structure">
       <option name="closed" value="true" />
@@ -250,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724568264484</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Main configs added to handle ORM">
+      <option name="closed" value="true" />
+      <created>1724580163120</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724580163120</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +282,8 @@
     <MESSAGE value="Test Update note with pre-defined data structure" />
     <MESSAGE value="Test Delete note with pre-defined data structure use ListIterator" />
     <MESSAGE value="minor changes apply with add @ResponseStatus to controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes apply with add @ResponseStatus to controller" />
+    <MESSAGE value="Main configs added to handle ORM" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main configs added to handle ORM" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
