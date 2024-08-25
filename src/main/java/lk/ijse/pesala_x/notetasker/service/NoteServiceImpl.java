@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+
 @Service
 public class NoteServiceImpl implements NoteService{
     List<NoteDTO> saveNoteTmp = new ArrayList<>();
@@ -25,20 +27,26 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public void updateNote(String noteId, NoteDTO incomeNoteDTO) {
-        for (NoteDTO updateNote : saveNoteTmp) {
-            if (updateNote.getNoteId().equals(noteId)) {
-                updateNote.setNoteDesc(incomeNoteDTO.getNoteDesc());
-                updateNote.setNoteTitle(incomeNoteDTO.getNoteTitle());
-                updateNote.setPriorityLevel(incomeNoteDTO.getPriorityLevel());
-                updateNote.setCreateDate(incomeNoteDTO.getCreateDate());
+        ListIterator<NoteDTO> updatedList = saveNoteTmp.listIterator();
+        while (updatedList.hasNext()) {
+            NoteDTO noteDTO = updatedList.next();
+            if (noteId.equals(noteDTO.getNoteId())) {
+                incomeNoteDTO.setNoteId(noteDTO.getNoteId());
+                updatedList.set(incomeNoteDTO);
+                break;
             }
-
         }
     }
 
     @Override
-    public boolean deleteNote(String noteId) {
-        return false;
+    public void deleteNote(String noteId) {
+        ListIterator<NoteDTO> tmpList = saveNoteTmp.listIterator();
+        while (tmpList.hasNext()) {
+            NoteDTO noteDTO = tmpList.next();
+            if (noteId.equals(noteDTO.getNoteId())) {
+                tmpList.remove();
+            }
+        }
     }
 
     @Override
