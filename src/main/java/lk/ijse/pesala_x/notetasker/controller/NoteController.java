@@ -5,6 +5,7 @@ import lk.ijse.pesala_x.notetasker.service.NoteService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,11 +41,13 @@ public class NoteController {
         );*/
         return noteService.getSelectedNote(noteId);
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping(value = "/{noteId}",produces = MediaType.APPLICATION_JSON_VALUE) // http://localhost:8080/NoteTaker/api/v1/notes/NOTE 4f8a0a68-3ccc-41b2-9de6-4e9bcdba65bb
     public void updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO note) {
         System.out.println(noteId);
         System.out.println(note+ " Updated");
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value ="/{noteId}" )
     public void deleteNote(@PathVariable ("noteId") String noteId) {
         noteService.deleteNote(noteId);
