@@ -1,7 +1,12 @@
 package lk.ijse.pesala_x.notetasker.service;
 
+import jakarta.transaction.Transactional;
+import lk.ijse.pesala_x.notetasker.dao.NoteDao;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
+import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
+import lk.ijse.pesala_x.notetasker.util.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,8 +14,42 @@ import java.util.List;
 import java.util.ListIterator;
 
 @Service
+@Transactional
 public class NoteServiceImpl implements NoteService{
-    List<NoteDTO> saveNoteTmp = new ArrayList<>();
+    @Autowired
+    private NoteDao noteDao;
+    @Autowired
+    private Mapping mapping;
+
+    @Override
+    public String saveNote(NoteDTO noteDTO) {
+        noteDTO.setNoteId(AppUtil.generateNoteId());
+        var noteEntity = mapping.convertToEntity(noteDTO);
+        noteDao.save(noteEntity);
+        return "Saved successfully in Service layer";
+    }
+
+    @Override
+    public void updateNote(String noteId, NoteDTO noteDTO) {
+
+    }
+
+    @Override
+    public void deleteNote(String noteId) {
+
+    }
+
+    @Override
+    public NoteDTO getSelectedNote(String noteId) {
+        return null;
+    }
+
+    @Override
+    public List<NoteDTO> getAllNotes() {
+        return null;
+    }
+
+    /*List<NoteDTO> saveNoteTmp = new ArrayList<>();
     public NoteServiceImpl() {
         saveNoteTmp.add(new NoteDTO("NOTE 4f8a0a67-2ebc-41b2-9de6-4e9bcdba65bb","Priciples of SE","SE Desc","P1","20240825"));
         saveNoteTmp.add(new NoteDTO("NOTE 4f8a0a68-3ccc-41b2-9de6-4e9bcdba65bb","Priciples of CS","CS Desc","P2","20240825"));
@@ -62,5 +101,6 @@ public class NoteServiceImpl implements NoteService{
     @Override
     public List<NoteDTO> getAllNotes() {
         return saveNoteTmp;
-    }
+    }*/
+
 }

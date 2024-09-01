@@ -20,8 +20,8 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan(basePackages = "lk.ijse.pesala_x.notetasker")
-@EnableWebMvc
-@EnableJpaRepositories
+//@EnableWebMvc
+@EnableJpaRepositories(basePackages = "lk.ijse.pesala_x.notetasker")
 @EnableTransactionManagement
 public class WebAppRootConfig {
     @Bean
