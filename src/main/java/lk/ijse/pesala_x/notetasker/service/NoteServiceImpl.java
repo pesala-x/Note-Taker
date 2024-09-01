@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -30,23 +31,45 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public void updateNote(String noteId, NoteDTO noteDTO) {
-
+    public boolean updateNote(String noteId, NoteDTO incommingNoteDTO) {
+        Optional<NoteEntity> tempNoteEntity = noteDao.findById(noteId);
+        if (!tempNoteEntity.isPresent()){
+            return false;
+        }else {
+            tempNoteEntity.get().setNoteDesc(incommingNoteDTO.getNoteDesc());
+            tempNoteEntity.get().setNoteTitle(incommingNoteDTO.getNoteTitle());
+            tempNoteEntity.get().setCreateDate(incommingNoteDTO.getCreateDate());
+            tempNoteEntity.get().setPriorityLevel(incommingNoteDTO.getPriorityLevel());
+        }
+        return true;
     }
 
     @Override
-    public void deleteNote(String noteId) {
+    public boolean deleteNote(String noteId) {
+//        noteDao.deleteById(noteId);
+//        for get clear idea for the request
+        if (noteDao.existsById(noteId)) {
+            noteDao.deleteById(noteId);
+            return true;
+        }else {
+            return false;
+        }
 
     }
 
     @Override
     public NoteDTO getSelectedNote(String noteId) {
-        return null;
+        return mapping.convertToDTO(noteDao.getReferenceById(noteId));
     }
 
     @Override
     public List<NoteDTO> getAllNotes() {
-        return null;
+        /* here Simplyfyied methods
+        List<NoteEntity> getAllNotes = noteDao.findAll();
+        List<NoteDTO> noteDTOS = mapping.convertToDTO(getAllNotes);
+        return noteDTOS;
+        */
+        return mapping.convertToDTO(noteDao.findAll());
     }
 
     /*List<NoteDTO> saveNoteTmp = new ArrayList<>();
