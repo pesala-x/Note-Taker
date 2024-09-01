@@ -15,13 +15,14 @@ import java.util.List;
 @RequestMapping("/api/v1/notes")
 @RequiredArgsConstructor
 public class NoteController {
-    //Todo : Add health check endpoint
     @Autowired
     private final NoteService noteService;
-    //Todo: CRUD of the note
+    @GetMapping("health") // http://localhost:8080/NoteTaker/api/v1/notes/health
+    public String healthCheck(){
+        return "Note Taker is Running successfully...";
+    }
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createNote(@RequestBody NoteDTO note) {
-        //Todo: Handle with Service
         var saveData = noteService.saveNote(note);
         return ResponseEntity.ok(saveData);
     }
