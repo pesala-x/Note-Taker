@@ -3,6 +3,7 @@ package lk.ijse.pesala_x.notetasker.controller;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
 import lk.ijse.pesala_x.notetasker.service.UserService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("api/v1/users")
+@RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
-
-    //Todo:Save user
+    //Save user
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> saveUser (
             @RequestPart("firstName") String firstName,
