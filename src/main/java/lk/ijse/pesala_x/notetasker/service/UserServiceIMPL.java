@@ -1,17 +1,32 @@
 package lk.ijse.pesala_x.notetasker.service;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.pesala_x.notetasker.dao.UserDao;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
+import lk.ijse.pesala_x.notetasker.util.AppUtil;
+import lk.ijse.pesala_x.notetasker.util.Mapping;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class UserServiceIMPL implements UserService{
+
+    @Autowired
+    private final UserDao userDao;
+
+    @Autowired
+    private final Mapping mapping;
+
     @Override
     public String saveUser(UserDTO userDTO) {
-        return "";
+        userDTO.setUserId(AppUtil.generateUserId());
+        userDao.save(mapping.convertToUserEntity(userDTO));
+        return "User Saved Successfully...";
     }
 
     @Override
