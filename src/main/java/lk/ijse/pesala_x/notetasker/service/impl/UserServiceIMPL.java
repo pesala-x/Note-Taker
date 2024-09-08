@@ -1,6 +1,8 @@
 package lk.ijse.pesala_x.notetasker.service.impl;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.pesala_x.notetasker.CustomOBJ.UserErrorResponse;
+import lk.ijse.pesala_x.notetasker.CustomOBJ.UserResponse;
 import lk.ijse.pesala_x.notetasker.dao.UserDao;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
@@ -78,9 +80,13 @@ public void updateUser(UserDTO userDTO) {
     }
 
     @Override
-    public UserDTO getSelectedUser(String userId) {
-        UserEntity userEntitiesByUserId = userDao.getUserEntitiesByUserId(userId);
-        return mapping.convertToUserDTO(userEntitiesByUserId);
+    public UserResponse getSelectedUser(String userId) {
+        if(userDao.existsById(userId)){
+            UserEntity userEntityByUserId = userDao.getUserEntitiesByUserId(userId);
+            return mapping.convertToUserDTO(userEntityByUserId);
+        }else {
+            return new UserErrorResponse(0, "User not found");
+        }
     }
 
 

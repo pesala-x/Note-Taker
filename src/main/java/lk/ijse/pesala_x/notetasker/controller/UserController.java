@@ -1,6 +1,6 @@
 package lk.ijse.pesala_x.notetasker.controller;
 
-import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
+import lk.ijse.pesala_x.notetasker.CustomOBJ.UserResponse;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
 import lk.ijse.pesala_x.notetasker.exception.UserNotFoundException;
 import lk.ijse.pesala_x.notetasker.service.UserService;
@@ -58,7 +58,7 @@ public class UserController {
         return userService.deleteUser(userId) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getSelectedUser (@PathVariable ("id") String userId){
+    public UserResponse getSelectedUser (@PathVariable ("id") String userId){
         return userService.getSelectedUser(userId);
     }
 
