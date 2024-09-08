@@ -1,9 +1,10 @@
-package lk.ijse.pesala_x.notetasker.service;
+package lk.ijse.pesala_x.notetasker.service.impl;
 
 import jakarta.transaction.Transactional;
 import lk.ijse.pesala_x.notetasker.dao.NoteDao;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
+import lk.ijse.pesala_x.notetasker.service.NoteService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
 import lk.ijse.pesala_x.notetasker.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class NoteServiceImpl implements NoteService{
+public class NoteServiceImpl implements NoteService {
     @Autowired
     private NoteDao noteDao;
     @Autowired
