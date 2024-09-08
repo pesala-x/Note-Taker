@@ -42,7 +42,7 @@ public class UserServiceIMPL implements UserService {
         if (!tempUserEntity.isPresent()) {
             return false;
         }else {
-            tempUserEntity.get().setUserId(incomminguserDTO.getFirstName());
+            tempUserEntity.get().setFirstName(incomminguserDTO.getFirstName());
             tempUserEntity.get().setLastName(incomminguserDTO.getLastName());
             tempUserEntity.get().setEmail(incomminguserDTO.getEmail());
             tempUserEntity.get().setPassword(incomminguserDTO.getPassword());
@@ -70,6 +70,7 @@ public class UserServiceIMPL implements UserService {
 
     @Override
     public List<UserDTO> getAllUsers() {
-        return List.of();
+        List<UserEntity> getAllUsers = userDao.findAll();
+        return mapping.convertUserToDTOList(getAllUsers);
     }
 }
