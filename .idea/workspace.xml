@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Tested Get user by id , delete user process and update user processes">
+    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Tested health check &amp; update users by given id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/UserServiceIMPL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/UserServiceIMPL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/util/Mapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/util/Mapping.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +207,7 @@
       <workItem from="1725164846982" duration="85000" />
       <workItem from="1725170642811" duration="15381000" />
       <workItem from="1725299995542" duration="2565000" />
-      <workItem from="1725766600164" duration="12450000" />
+      <workItem from="1725766600164" duration="14127000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Web and create package structure">
       <option name="closed" value="true" />
@@ -392,7 +393,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725775367669</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Tested health check and update users by given id">
+      <option name="closed" value="true" />
+      <created>1725779565511</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725779565511</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Tested health check &amp; update users by given id">
+      <option name="closed" value="true" />
+      <created>1725780286043</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725780286043</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +451,9 @@
     <MESSAGE value="tested the save user data process with new user id generator()" />
     <MESSAGE value="Test and Deploy error fixed Save user." />
     <MESSAGE value="Tested Get user by id , delete user process and update user processes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested Get user by id , delete user process and update user processes" />
+    <MESSAGE value="Tested health check and update users by given id" />
+    <MESSAGE value="Tested health check &amp; update users by given id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tested health check &amp; update users by given id" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

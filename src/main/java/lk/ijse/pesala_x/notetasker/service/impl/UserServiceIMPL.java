@@ -36,7 +36,7 @@ public class UserServiceIMPL implements UserService {
         return "User Saved Successfully...";
     }
 
-    @Override
+    /*@Override
     public boolean updateUser(String userId, UserDTO incomminguserDTO) {
         Optional<UserEntity> tempUserEntity = userDao.findById(userId);
         if (!tempUserEntity.isPresent()) {
@@ -49,8 +49,21 @@ public class UserServiceIMPL implements UserService {
             tempUserEntity.get().setProfilePic(incomminguserDTO.getProfilePic());
         }
         return true;
+    }*/
+public boolean updateUser(UserDTO userDTO) {
+    Optional<UserEntity> tmpUser = userDao.findById(userDTO.getUserId());
+    if(!tmpUser.isPresent()){
+        return false;
+    }else {
+        tmpUser.get().setFirstName(userDTO.getFirstName());
+        tmpUser.get().setLastName(userDTO.getLastName());
+        tmpUser.get().setEmail(userDTO.getEmail());
+        tmpUser.get().setPassword(userDTO.getPassword());
+        tmpUser.get().setProfilePic(userDTO.getProfilePic());
+        userDao.save(tmpUser.get());
     }
-
+    return true;
+}
     @Override
     public boolean deleteUser(String userId) {
         if (userDao.existsById(userId)) {
