@@ -8,6 +8,7 @@ import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
 import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
 import lk.ijse.pesala_x.notetasker.entity.UserEntity;
+import lk.ijse.pesala_x.notetasker.exception.DataPersistFailedException;
 import lk.ijse.pesala_x.notetasker.exception.UserNotFoundException;
 import lk.ijse.pesala_x.notetasker.service.UserService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
@@ -31,14 +32,12 @@ public class UserServiceIMPL implements UserService {
     private final Mapping mapping;
 
     @Override
-    public String saveUser(UserDTO userDTO) {
+    public void saveUser(UserDTO userDTO) {
         userDTO.setUserId(AppUtil.generateUserId());
         UserEntity savedUser =
                 userDao.save(mapping.convertToUserEntity(userDTO));
-        if(savedUser != null && savedUser.getUserId() != null ) {
-            return "User saved successfully";
-        }else {
-            return "Save failed";
+        if(savedUser == null && savedUser.getUserId() == null ) {
+            throw new DataPersistFailedException("Cannot data saved");
         }
     }
 
@@ -70,12 +69,12 @@ public void updateUser(UserDTO userDTO) {
     }
 }
     @Override
-    public boolean deleteUser(String userId) {
-        if (userDao.existsById(userId)) {
-            userDao.deleteById(userId);
-            return true;
+    public void deleteUser(String userId) {
+        Optional<UserEntity> selectedUserId = userDao.findById(userId);
+        if(!selectedUserId.isPresent()){
+            throw new UserNotFoundException("User not found");
         }else {
-            return false;
+            userDao.deleteById(userId);
         }
     }
 
