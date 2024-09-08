@@ -6,6 +6,7 @@ import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
 import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
 import lk.ijse.pesala_x.notetasker.entity.UserEntity;
+import lk.ijse.pesala_x.notetasker.exception.UserNotFoundException;
 import lk.ijse.pesala_x.notetasker.service.UserService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
 import lk.ijse.pesala_x.notetasker.util.Mapping;
@@ -53,10 +54,10 @@ public class UserServiceIMPL implements UserService {
         }
         return true;
     }*/
-public boolean updateUser(UserDTO userDTO) {
+public void updateUser(UserDTO userDTO) {
     Optional<UserEntity> tmpUser = userDao.findById(userDTO.getUserId());
     if(!tmpUser.isPresent()){
-        return false;
+        throw new UserNotFoundException("User not found");
     }else {
         tmpUser.get().setFirstName(userDTO.getFirstName());
         tmpUser.get().setLastName(userDTO.getLastName());
@@ -65,7 +66,6 @@ public boolean updateUser(UserDTO userDTO) {
         tmpUser.get().setProfilePic(userDTO.getProfilePic());
         userDao.save(tmpUser.get());
     }
-    return true;
 }
     @Override
     public boolean deleteUser(String userId) {
