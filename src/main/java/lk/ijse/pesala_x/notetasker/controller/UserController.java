@@ -40,7 +40,7 @@ public class UserController {
         builduserDTO.setProfilePic(base64ProfilePic);
 
         //Todo: send to the service Layer
-        userService.saveUser(builduserDTO);
+//        userService.saveUser(builduserDTO);
 
         return new ResponseEntity<>(userService.saveUser(builduserDTO), HttpStatus.CREATED);
     }
