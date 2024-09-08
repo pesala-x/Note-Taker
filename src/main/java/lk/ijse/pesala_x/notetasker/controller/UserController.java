@@ -1,5 +1,6 @@
 package lk.ijse.pesala_x.notetasker.controller;
 
+import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.dto.UserDTO;
 import lk.ijse.pesala_x.notetasker.service.UserService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
@@ -10,13 +11,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
-    //Save user
+
+    @GetMapping("/health") // http://localhost:8080/NoteTaker/api/v1/users/health
+    public String healthCheck(){
+        return "Note Taker User is Running successfully...";
+    }
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> saveUser (
             @RequestPart("firstName") String firstName,// single request part annotation
@@ -44,13 +51,19 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable("id") String userId){ // id kiyna path variable eka udin enne kiyla hadunwanawa
         return userService.deleteUser(userId) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getSelectedUser (@PathVariable ("id") String userId){
         return userService.getSelectedUser(userId);
     }
+
+    @GetMapping(value = "allusers", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDTO>getAllUsers(){
+        return userService.getAllUsers();
+    }
+
     @PatchMapping("/{id}")
-    public ResponseEntity<String> updateUser( @PathVariable ("userId") String userId, @RequestBody UserDTO userDTO){
+    public ResponseEntity<String> updateUser( @PathVariable ("id") String userId, @RequestBody UserDTO userDTO){
+        System.out.println( userId +"user Update Succesfully");
         return userService.updateUser(userId, userDTO) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
