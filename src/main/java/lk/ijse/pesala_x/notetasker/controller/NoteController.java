@@ -1,6 +1,7 @@
 package lk.ijse.pesala_x.notetasker.controller;
 
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
+import lk.ijse.pesala_x.notetasker.exception.DataPersistFailedException;
 import lk.ijse.pesala_x.notetasker.exception.NoteNotFound;
 import lk.ijse.pesala_x.notetasker.service.NoteService;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +20,28 @@ public class NoteController {
     @Autowired
     private final NoteService noteService;
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+/*    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createNote(@RequestBody NoteDTO note) {
         var saveData = noteService.saveNote(note);
         return ResponseEntity.ok(saveData);
+    }*/
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> createNote(@RequestBody NoteDTO note) {
+        if (note == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            try {
+                noteService.saveNote(note);
+                return new ResponseEntity<>(HttpStatus.CREATED);
+            } catch (DataPersistFailedException e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
     }
+
     @GetMapping(value = "allnotes", produces = MediaType.APPLICATION_JSON_VALUE)// http://localhost:8080/NoteTaker/api/v1/notes/allnotes
     public List<NoteDTO> getAllNotes(){
         return noteService.getAllNotes();
