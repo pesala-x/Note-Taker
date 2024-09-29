@@ -1,5 +1,6 @@
 package lk.ijse.pesala_x.notetasker.controller;
 
+import lk.ijse.pesala_x.notetasker.CustomOBJ.NoteResponse;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.exception.DataPersistFailedException;
 import lk.ijse.pesala_x.notetasker.exception.NoteNotFound;
@@ -25,7 +26,6 @@ public class NoteController {
         var saveData = noteService.saveNote(note);
         return ResponseEntity.ok(saveData);
     }*/
-
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createNote(@RequestBody NoteDTO note) {
         if (note == null) {
@@ -47,7 +47,7 @@ public class NoteController {
         return noteService.getAllNotes();
     }
     @GetMapping(value = "/{noteId}", produces = MediaType.APPLICATION_JSON_VALUE)// http://localhost:8080/NoteTaker/api/v1/notes/NOTE 4f8a0a68-3ccc-41b2-9de6-4e9bcdba65bb
-    public NoteDTO getNote(@PathVariable ("noteId") String noteId)  {
+    public NoteResponse getSelectedNote(@PathVariable ("noteId") String noteId)  {
         System.out.println(noteId);
         /*        return new NoteDTO(
                 "NOTE 4f8a0a67-2ebc-41b2-9de6-4e9bcdba65bb",

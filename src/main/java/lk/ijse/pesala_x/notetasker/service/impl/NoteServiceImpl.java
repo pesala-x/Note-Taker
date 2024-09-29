@@ -1,6 +1,8 @@
 package lk.ijse.pesala_x.notetasker.service.impl;
 
 import jakarta.transaction.Transactional;
+import lk.ijse.pesala_x.notetasker.CustomOBJ.NoteErrorResponse;
+import lk.ijse.pesala_x.notetasker.CustomOBJ.NoteResponse;
 import lk.ijse.pesala_x.notetasker.dao.NoteDao;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
@@ -63,8 +65,12 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public NoteDTO getSelectedNote(String noteId) {
-        return mapping.convertToDTO(noteDao.getReferenceById(noteId));
+    public NoteResponse getSelectedNote(String noteId) {
+        if(noteDao.existsById(noteId)){
+            return mapping.convertToDTO(noteDao.getReferenceById(noteId));
+        }else {
+            return new NoteErrorResponse(0,"Note not found");
+        }
     }
 
     @Override

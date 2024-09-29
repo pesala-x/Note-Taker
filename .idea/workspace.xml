@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="create health checker">
+    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Optimizing the process of user create with custom exception handling">
       <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/CustomOBJ/NoteErrorResponse.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/CustomOBJ/NoteResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/NoteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/NoteServiceImpl.java" afterDir="false" />
     </list>
@@ -231,7 +230,7 @@
       <workItem from="1725170642811" duration="15381000" />
       <workItem from="1725299995542" duration="2565000" />
       <workItem from="1725766600164" duration="21758000" />
-      <workItem from="1727580676260" duration="7134000" />
+      <workItem from="1727580676260" duration="7507000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Web and create package structure">
       <option name="closed" value="true" />
@@ -489,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727585507060</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Optimizing the process of user create with custom exception handling">
+      <option name="closed" value="true" />
+      <created>1727588187875</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1727588187875</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +515,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="minor changes apply with add @ResponseStatus to controller" />
     <MESSAGE value="Main configs added to handle ORM" />
     <MESSAGE value="add configs for Driver Manager Datasource" />
     <MESSAGE value="Completed configs and create the table" />
@@ -533,7 +539,8 @@
     <MESSAGE value="Optimize Save User Process" />
     <MESSAGE value="updated" />
     <MESSAGE value="create health checker" />
-    <option name="LAST_COMMIT_MESSAGE" value="create health checker" />
+    <MESSAGE value="Optimizing the process of user create with custom exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimizing the process of user create with custom exception handling" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
