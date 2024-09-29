@@ -63,6 +63,9 @@ public class NoteController {
     @PatchMapping(value = "/{noteId}",produces = MediaType.APPLICATION_JSON_VALUE) // http://localhost:8080/NoteTaker/api/v1/notes/NOTE 4f8a0a68-3ccc-41b2-9de6-4e9bcdba65bb
     public ResponseEntity<Void> updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO note) {
         try {
+            if (note == null && (noteId == null || note.equals(""))){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
             noteService.updateNote(noteId, note);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (NoteNotFound e){

@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Optimizing the process of select a Note with custom exception handling">
+    <list default="true" id="d7301750-484b-4270-a85b-42c00342aaec" name="Changes" comment="Optimizing the process of delete a Note with custom exception handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/controller/NoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/NoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/service/impl/NoteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/util/Mapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/pesala_x/notetasker/util/Mapping.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +228,7 @@
       <workItem from="1725170642811" duration="15381000" />
       <workItem from="1725299995542" duration="2565000" />
       <workItem from="1725766600164" duration="21758000" />
-      <workItem from="1727580676260" duration="8598000" />
+      <workItem from="1727580676260" duration="10588000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Web and create package structure">
       <option name="closed" value="true" />
@@ -503,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727590774441</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Optimizing the process of delete a Note with custom exception handling">
+      <option name="closed" value="true" />
+      <created>1727591731843</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1727591731843</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +529,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add configs for Driver Manager Datasource" />
     <MESSAGE value="Completed configs and create the table" />
     <MESSAGE value="create Model mapper based utility for entity dto mapping and vice verse" />
     <MESSAGE value="test the Dao with save Note" />
@@ -547,7 +553,8 @@
     <MESSAGE value="create health checker" />
     <MESSAGE value="Optimizing the process of user create with custom exception handling" />
     <MESSAGE value="Optimizing the process of select a Note with custom exception handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimizing the process of select a Note with custom exception handling" />
+    <MESSAGE value="Optimizing the process of delete a Note with custom exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimizing the process of delete a Note with custom exception handling" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
