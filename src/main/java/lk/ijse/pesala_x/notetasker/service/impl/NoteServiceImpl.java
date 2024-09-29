@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lk.ijse.pesala_x.notetasker.dao.NoteDao;
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
 import lk.ijse.pesala_x.notetasker.entity.NoteEntity;
+import lk.ijse.pesala_x.notetasker.exception.NoteNotFound;
 import lk.ijse.pesala_x.notetasker.service.NoteService;
 import lk.ijse.pesala_x.notetasker.util.AppUtil;
 import lk.ijse.pesala_x.notetasker.util.Mapping;
@@ -32,17 +33,17 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public boolean updateNote(String noteId, NoteDTO incommingNoteDTO) {
+    public void updateNote(String noteId, NoteDTO incommingNoteDTO) {
         Optional<NoteEntity> tempNoteEntity = noteDao.findById(noteId);
         if (!tempNoteEntity.isPresent()){
-            return false;
+            throw new NoteNotFound("Note not found");
         }else {
             tempNoteEntity.get().setNoteDesc(incommingNoteDTO.getNoteDesc());
             tempNoteEntity.get().setNoteTitle(incommingNoteDTO.getNoteTitle());
             tempNoteEntity.get().setCreateDate(incommingNoteDTO.getCreateDate());
             tempNoteEntity.get().setPriorityLevel(incommingNoteDTO.getPriorityLevel());
         }
-        return true;
+
     }
 
     @Override

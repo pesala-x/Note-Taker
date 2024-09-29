@@ -14,4 +14,5 @@ public class NoteDTO implements SuperDTO {
     private String noteDesc;
     private String priorityLevel;
     private String createDate;
+    private String userId;
 }

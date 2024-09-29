@@ -1,6 +1,7 @@
 package lk.ijse.pesala_x.notetasker.controller;
 
 import lk.ijse.pesala_x.notetasker.dto.NoteDTO;
+import lk.ijse.pesala_x.notetasker.exception.NoteNotFound;
 import lk.ijse.pesala_x.notetasker.service.NoteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +44,17 @@ public class NoteController {
         return noteService.getSelectedNote(noteId);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping(value = "/{noteId}",produces = MediaType.APPLICATION_JSON_VALUE) // http://localhost:8080/NoteTaker/api/v1/notes/NOTE 4f8a0a68-3ccc-41b2-9de6-4e9bcdba65bb
-    public ResponseEntity<String> updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO note) {
-        return noteService.updateNote(noteId, note) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Void> updateNote(@PathVariable ("noteId") String noteId, @RequestBody NoteDTO note) {
+        try {
+            noteService.updateNote(noteId, note);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NoteNotFound e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping(value ="/{noteId}" )
