@@ -18,10 +18,7 @@ import java.util.List;
 public class NoteController {
     @Autowired
     private final NoteService noteService;
-    @GetMapping("health") // http://localhost:8080/NoteTaker/api/v1/notes/health
-    public String healthCheck(){
-        return "Note Taker is Running successfully...";
-    }
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createNote(@RequestBody NoteDTO note) {
         var saveData = noteService.saveNote(note);

@@ -23,10 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/health") // http://localhost:8080/NoteTaker/api/v1/users/health
-    public String healthCheck(){
-        return "Note Taker User is Running successfully...";
-    }
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> saveUser (
             @RequestPart("firstName") String firstName,// single request part annotation
